@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */; };
+		F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */; };
+		F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */; };
 		F1A4AA521953981B009EE205 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA511953981B009EE205 /* Foundation.framework */; };
 		F1A4AA541953981B009EE205 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA531953981B009EE205 /* CoreGraphics.framework */; };
 		F1A4AA561953981B009EE205 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA551953981B009EE205 /* UIKit.framework */; };
@@ -15,7 +18,6 @@
 		F1A4AA621953981B009EE205 /* snapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4AA611953981B009EE205 /* snapAppDelegate.m */; };
 		F1A4AA651953981B009EE205 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A4AA631953981B009EE205 /* Main_iPhone.storyboard */; };
 		F1A4AA681953981B009EE205 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A4AA661953981B009EE205 /* Main_iPad.storyboard */; };
-		F1A4AA6B1953981B009EE205 /* snapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A4AA6A1953981B009EE205 /* snapViewController.m */; };
 		F1A4AA6D1953981B009EE205 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1A4AA6C1953981B009EE205 /* Images.xcassets */; };
 		F1A4AA741953981B009EE205 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA731953981B009EE205 /* XCTest.framework */; };
 		F1A4AA751953981B009EE205 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA511953981B009EE205 /* Foundation.framework */; };
@@ -35,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F16BDC691955EA9500BD3538 /* snapFlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapFlickrPhotosTVC.h; sourceTree = "<group>"; };
+		F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snapFlickrPhotosTVC.m; sourceTree = "<group>"; };
+		F16BDC6C1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapJustPostedFlickrPhotosTVCViewController.h; sourceTree = "<group>"; };
+		F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snapJustPostedFlickrPhotosTVCViewController.m; sourceTree = "<group>"; };
+		F16BDC701955F1CC00BD3538 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		F16BDC711955F1CC00BD3538 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		F1A4AA4E1953981B009EE205 /* snapshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snapshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A4AA511953981B009EE205 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F1A4AA531953981B009EE205 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,8 +56,6 @@
 		F1A4AA611953981B009EE205 /* snapAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = snapAppDelegate.m; sourceTree = "<group>"; };
 		F1A4AA641953981B009EE205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		F1A4AA671953981B009EE205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		F1A4AA691953981B009EE205 /* snapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snapViewController.h; sourceTree = "<group>"; };
-		F1A4AA6A1953981B009EE205 /* snapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = snapViewController.m; sourceTree = "<group>"; };
 		F1A4AA6C1953981B009EE205 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1A4AA721953981B009EE205 /* snapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A4AA731953981B009EE205 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -81,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F16BDC6F1955F1CC00BD3538 /* Flickr Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				F16BDC701955F1CC00BD3538 /* FlickrAPIKey.h */,
+				F16BDC711955F1CC00BD3538 /* FlickrFetcher.h */,
+				F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */,
+			);
+			path = "Flickr Fetcher";
+			sourceTree = "<group>";
+		};
 		F1A4AA451953981B009EE205 = {
 			isa = PBXGroup;
 			children = (
@@ -114,13 +131,13 @@
 		F1A4AA571953981B009EE205 /* snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				F1A4AA601953981B009EE205 /* snapAppDelegate.h */,
-				F1A4AA611953981B009EE205 /* snapAppDelegate.m */,
 				F1A4AA631953981B009EE205 /* Main_iPhone.storyboard */,
 				F1A4AA661953981B009EE205 /* Main_iPad.storyboard */,
-				F1A4AA691953981B009EE205 /* snapViewController.h */,
-				F1A4AA6A1953981B009EE205 /* snapViewController.m */,
-				F1A4AA6C1953981B009EE205 /* Images.xcassets */,
+				F16BDC691955EA9500BD3538 /* snapFlickrPhotosTVC.h */,
+				F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */,
+				F16BDC6C1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.h */,
+				F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */,
+				F16BDC6F1955F1CC00BD3538 /* Flickr Fetcher */,
 				F1A4AA581953981B009EE205 /* Supporting Files */,
 			);
 			path = snapshot;
@@ -129,6 +146,9 @@
 		F1A4AA581953981B009EE205 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F1A4AA6C1953981B009EE205 /* Images.xcassets */,
+				F1A4AA601953981B009EE205 /* snapAppDelegate.h */,
+				F1A4AA611953981B009EE205 /* snapAppDelegate.m */,
 				F1A4AA591953981B009EE205 /* snapshot-Info.plist */,
 				F1A4AA5A1953981B009EE205 /* InfoPlist.strings */,
 				F1A4AA5D1953981B009EE205 /* main.m */,
@@ -255,8 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A4AA621953981B009EE205 /* snapAppDelegate.m in Sources */,
-				F1A4AA6B1953981B009EE205 /* snapViewController.m in Sources */,
+				F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */,
 				F1A4AA5E1953981B009EE205 /* main.m in Sources */,
+				F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */,
+				F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +493,7 @@
 				F1A4AA851953981B009EE205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1A4AA861953981B009EE205 /* Build configuration list for PBXNativeTarget "snapshotTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +502,7 @@
 				F1A4AA881953981B009EE205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
