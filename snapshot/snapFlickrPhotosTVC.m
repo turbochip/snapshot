@@ -8,6 +8,7 @@
 
 #import "snapFlickrPhotosTVC.h"
 #import "FlickrFetcher.h"
+#import "ccImageViewController.h"
 
 @interface snapFlickrPhotosTVC ()
 
@@ -45,11 +46,6 @@
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 - (IBAction)refreshPullDown:(UIRefreshControl *)sender
 {
     [self.refreshControl beginRefreshing];
@@ -59,17 +55,43 @@
             [self.refreshControl endRefreshing];
         });
     });
-    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detail = self.splitViewController.viewControllers[1];
+    if([detail isKindOfClass:[UINavigationController class]]) {
+        detail = [((UINavigationController *)detail).viewControllers firstObject];
+    }
+    if([detail isKindOfClass:[ccImageViewController class]]) {
+        [self prepareImageViewController:detail toDisplayPhoto:self.photos[indexPath.row]];
+    }
 }
 
 #pragma mark - Navigation
+
+- (void) prepareImageViewController:(ccImageViewController *)ivc toDisplayPhoto:(NSDictionary *)photo
+{
+    ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
+    ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];
+    if([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if([segue.identifier isEqualToString:@"DisplayPhoto"]) {
+                if([segue.destinationViewController isKindOfClass:[ccImageViewController class]]) {
+                    [self prepareImageViewController:segue.destinationViewController
+                                      toDisplayPhoto:self.photos[indexPath.row]];
+                }
+            }
+        }
+    }
 }
 
 @end

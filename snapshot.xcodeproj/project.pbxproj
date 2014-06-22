@@ -10,6 +10,7 @@
 		F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */; };
 		F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */; };
 		F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */; };
+		F16BDCBD1956492D00BD3538 /* ccImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDCBC1956492D00BD3538 /* ccImageViewController.m */; };
 		F1A4AA521953981B009EE205 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA511953981B009EE205 /* Foundation.framework */; };
 		F1A4AA541953981B009EE205 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA531953981B009EE205 /* CoreGraphics.framework */; };
 		F1A4AA561953981B009EE205 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A4AA551953981B009EE205 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 		F16BDC701955F1CC00BD3538 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		F16BDC711955F1CC00BD3538 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		F16BDCBB1956492D00BD3538 /* ccImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccImageViewController.h; sourceTree = "<group>"; };
+		F16BDCBC1956492D00BD3538 /* ccImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccImageViewController.m; sourceTree = "<group>"; };
 		F1A4AA4E1953981B009EE205 /* snapshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snapshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A4AA511953981B009EE205 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F1A4AA531953981B009EE205 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,8 @@
 				F1A4AA661953981B009EE205 /* Main_iPad.storyboard */,
 				F16BDC691955EA9500BD3538 /* snapFlickrPhotosTVC.h */,
 				F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */,
+				F16BDCBB1956492D00BD3538 /* ccImageViewController.h */,
+				F16BDCBC1956492D00BD3538 /* ccImageViewController.m */,
 				F16BDC6C1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.h */,
 				F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */,
 				F16BDC6F1955F1CC00BD3538 /* Flickr Fetcher */,
@@ -278,6 +283,7 @@
 				F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */,
 				F1A4AA5E1953981B009EE205 /* main.m in Sources */,
 				F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */,
+				F16BDCBD1956492D00BD3538 /* ccImageViewController.m in Sources */,
 				F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
