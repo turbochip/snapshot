@@ -10,5 +10,6 @@
 
 @interface snapFlickrPhotosTVC : UITableViewController
 @property (nonatomic,strong) NSArray *photos;
+@property (nonatomic,strong) id location_id;
 
 @end

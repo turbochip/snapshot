@@ -23,6 +23,7 @@
 #define FLICKR_PLACE_NAME @"_content"
 #define FLICKR_PLACE_WOE_NAME @"woe_name"
 #define FLICKR_PLACE_ID @"place_id"
+#define FLICKR_PLACE_PHOTO_COUNT @"photo_count"
 
 // keys applicable to all types of Flickr dictionaries
 #define FLICKR_LATITUDE @"latitude"

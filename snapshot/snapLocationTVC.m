@@ -9,6 +9,7 @@
 #import "snapLocationTVC.h"
 #import "FlickrFetcher.h"
 #import "ccImageViewController.h"
+#import "snapJustPostedFlickrPhotosTVCViewController.h"
 
 @interface snapLocationTVC ()
 
@@ -45,7 +46,13 @@
 
 - (void) setLocations:(NSArray *)locations
 {
-    _locations=locations;
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_WOE_NAME ascending:YES];
+    NSSortDescriptor *count = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_PHOTO_COUNT ascending:NO];
+    NSArray *descriptors = @[count, sort];
+
+//    _locations=[locations sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptors]];
+    _locations=[locations sortedArrayUsingDescriptors:descriptors];
+//    _locations=locations;
     [self.tableView reloadData];
 }
 
@@ -95,9 +102,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id detail = self.splitViewController.viewControllers[1];
+    // deal with ipad split controller
     if([detail isKindOfClass:[UINavigationController class]]) {
         detail = [((UINavigationController *)detail).viewControllers firstObject];
     }
+    
     if([detail isKindOfClass:[ccImageViewController class]]) {
         [self prepareImageViewController:detail toDisplayPhoto:self.locations[indexPath.row]];
     }
@@ -109,7 +118,7 @@
     ivc.title = [location valueForKeyPath:FLICKR_PHOTO_TITLE];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -117,7 +126,18 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if([segue.identifier isEqualToString:@"LocationSegue"]) {
+                if([segue.destinationViewController isKindOfClass:[snapJustPostedFlickrPhotosTVCViewController class]]) {
+                    NSDictionary *location = self.locations[indexPath.row];
+                    [segue.destinationViewController setLocation_id:[location valueForKeyPath:FLICKR_PLACE_ID] ];
+                }
+            }
+        }
+    }
 }
-*/
+
 
 @end
