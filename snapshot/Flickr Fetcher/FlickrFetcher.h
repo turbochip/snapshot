@@ -21,6 +21,7 @@
 
 // keys (paths) to values in a places dictionary (from TopPlaces)
 #define FLICKR_PLACE_NAME @"_content"
+#define FLICKR_PLACE_WOE_NAME @"woe_name"
 #define FLICKR_PLACE_ID @"place_id"
 
 // keys applicable to all types of Flickr dictionaries
