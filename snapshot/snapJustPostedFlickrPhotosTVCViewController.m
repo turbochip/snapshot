@@ -10,7 +10,7 @@
 #import "FlickrFetcher.h"
 
 @interface snapJustPostedFlickrPhotosTVCViewController ()
-
+   
 @end
 
 @implementation snapJustPostedFlickrPhotosTVCViewController
