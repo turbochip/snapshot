@@ -11,4 +11,5 @@
 @interface ccImageViewController : UIViewController
 @property (nonatomic,strong) NSURL *imageURL;
 
+
 @end

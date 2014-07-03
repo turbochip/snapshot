@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F11998D21963A33D00801578 /* snapLocationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F11998D11963A33D00801578 /* snapLocationTVC.m */; };
+		F12C5EE71964822500566BF8 /* snapHistoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F12C5EE61964822500566BF8 /* snapHistoryTVC.m */; };
 		F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */; };
 		F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC6D1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m */; };
 		F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F16BDC721955F1CC00BD3538 /* FlickrFetcher.m */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		F11998D01963A33D00801578 /* snapLocationTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapLocationTVC.h; sourceTree = "<group>"; };
 		F11998D11963A33D00801578 /* snapLocationTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snapLocationTVC.m; sourceTree = "<group>"; };
+		F12C5EE51964822500566BF8 /* snapHistoryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapHistoryTVC.h; sourceTree = "<group>"; };
+		F12C5EE61964822500566BF8 /* snapHistoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snapHistoryTVC.m; sourceTree = "<group>"; };
 		F16BDC691955EA9500BD3538 /* snapFlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapFlickrPhotosTVC.h; sourceTree = "<group>"; };
 		F16BDC6A1955EA9500BD3538 /* snapFlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snapFlickrPhotosTVC.m; sourceTree = "<group>"; };
 		F16BDC6C1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snapJustPostedFlickrPhotosTVCViewController.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				F1A4AA631953981B009EE205 /* Main_iPhone.storyboard */,
+				F12C5EE51964822500566BF8 /* snapHistoryTVC.h */,
+				F12C5EE61964822500566BF8 /* snapHistoryTVC.m */,
 				F11998D01963A33D00801578 /* snapLocationTVC.h */,
 				F11998D11963A33D00801578 /* snapLocationTVC.m */,
 				F1A4AA661953981B009EE205 /* Main_iPad.storyboard */,
@@ -288,6 +293,7 @@
 				F16BDC6B1955EA9500BD3538 /* snapFlickrPhotosTVC.m in Sources */,
 				F1A4AA5E1953981B009EE205 /* main.m in Sources */,
 				F16BDC731955F1CC00BD3538 /* FlickrFetcher.m in Sources */,
+				F12C5EE71964822500566BF8 /* snapHistoryTVC.m in Sources */,
 				F11998D21963A33D00801578 /* snapLocationTVC.m in Sources */,
 				F16BDCBD1956492D00BD3538 /* ccImageViewController.m in Sources */,
 				F16BDC6E1955EB7400BD3538 /* snapJustPostedFlickrPhotosTVCViewController.m in Sources */,

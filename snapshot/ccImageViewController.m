@@ -77,6 +77,8 @@
     self.imageView.frame=CGRectMake(0,0,image.size.width,image.size.height);
 //    [self.scrollView sizeToFit];
     self.scrollView.contentSize=self.image ? self.image.size :CGSizeZero ;
+    float scale=self.scrollView.frame.size.width/self.image.size.width;
+    self.scrollView.zoomScale=scale;
     [self.spinner stopAnimating];
 }
 

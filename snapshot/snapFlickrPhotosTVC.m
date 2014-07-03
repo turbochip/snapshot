@@ -16,6 +16,12 @@
 
 @implementation snapFlickrPhotosTVC
 
+- (NSMutableArray *) historyArray
+{
+    if(!_historyArray) _historyArray=[[NSMutableArray alloc] init];
+    return _historyArray;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -72,8 +78,27 @@
 
 - (void) prepareImageViewController:(ccImageViewController *)ivc toDisplayPhoto:(NSDictionary *)photo
 {
+    NSUserDefaults *usrDef=[[NSUserDefaults alloc] init];
+    self.historyArray=[[usrDef arrayForKey:@"LastViewed"] mutableCopy];
     ivc.imageURL = [FlickrFetcher URLforPhoto:photo format:FlickrPhotoFormatLarge];
     ivc.title = [photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    for(int i=0;i<self.historyArray.count;i++)
+    {
+        NSDictionary *tArray = [self.historyArray objectAtIndex:i];
+        NSLog(@"tarray=%@, photo=%@",tArray,photo);
+        if([tArray isEqualToDictionary:photo]) {
+            NSLog(@"Removing photo");
+           [self.historyArray removeObject:tArray];
+        }
+        //NSLog(@"tarray=%@",tArray);
+    }
+    
+    while (self.historyArray.count>9)
+        [self.historyArray removeObjectAtIndex:0];
+    
+    [self.historyArray addObject:photo];
+    NSLog(@"added object %@",[self.historyArray lastObject]);
+    [usrDef setObject:self.historyArray forKey:@"LastViewed"];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
