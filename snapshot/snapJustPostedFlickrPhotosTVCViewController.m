@@ -26,7 +26,7 @@
 {
     [self.refreshControl beginRefreshing];
 #warning here is where we set the URL for getting the location pictures.
-    NSURL *url= [FlickrFetcher URLforPhotosInPlace:self.location_id maxResults:100];
+    NSURL *url= [FlickrFetcher URLforPhotosInPlace:self.location_id maxResults:50];
     dispatch_queue_t fetchQ=dispatch_queue_create("flickr fetcher", NULL);
     dispatch_async(fetchQ,^{
         NSData *jsonResults = [NSData dataWithContentsOfURL:url];

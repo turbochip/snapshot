@@ -20,7 +20,6 @@
 - (void) setImageURL:(NSURL *)imageURL
 {
     _imageURL=imageURL;
-    //self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:_imageURL]];
     [self startDownloadingImage];
 }
 
@@ -75,7 +74,6 @@
     self.scrollView.zoomScale=1.0;
     self.imageView.image=image;
     self.imageView.frame=CGRectMake(0,0,image.size.width,image.size.height);
-//    [self.scrollView sizeToFit];
     self.scrollView.contentSize=self.image ? self.image.size :CGSizeZero ;
     float scale=self.scrollView.frame.size.width/self.image.size.width;
     self.scrollView.zoomScale=scale;

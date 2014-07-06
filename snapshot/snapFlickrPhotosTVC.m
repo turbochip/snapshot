@@ -48,7 +48,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Photo Cell" forIndexPath:indexPath];
     // Configure the cell...
     NSDictionary *photo = self.photos[indexPath.row];
-    cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    if( ![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]) {
+        cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+        cell.detailTextLabel.text =[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    }
+    else {
+        if (![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]) {
+            cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        } else {
+            cell.textLabel.text=[NSString stringWithFormat:@"UNKNOWN"];
+        }
+    }
     return cell;
 }
 
@@ -93,11 +103,11 @@
         //NSLog(@"tarray=%@",tArray);
     }
     
-    while (self.historyArray.count>9)
-        [self.historyArray removeObjectAtIndex:0];
+    while (self.historyArray.count>19)
+        [self.historyArray removeLastObject];
     
-    [self.historyArray addObject:photo];
-    NSLog(@"added object %@",[self.historyArray lastObject]);
+    [self.historyArray insertObject:photo atIndex:0];
+    NSLog(@"added object %@",[self.historyArray objectAtIndex:0]);
     [usrDef setObject:self.historyArray forKey:@"LastViewed"];
 }
 

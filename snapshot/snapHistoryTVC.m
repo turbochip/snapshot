@@ -56,6 +56,17 @@
         
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self setHistoryArray:[[self.usrDef arrayForKey:@"LastViewed"] mutableCopy]];
+    for (int i=0;i<self.historyArray.count;i++)
+    {
+        NSLog(@"historyArray[%d]=%@",i,self.historyArray[i]);
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
