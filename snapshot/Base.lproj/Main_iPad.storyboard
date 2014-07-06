@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ixk-Y2-Mf4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ixk-Y2-Mf4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="-197" y="-625"/>
         </scene>
-        <!--Cc Image View Controller-->
+        <!--Cc Image View Controller - Item-->
         <scene sceneID="NVp-hc-07p">
             <objects>
                 <viewController id="T4w-pF-CfL" customClass="ccImageViewController" sceneMemberID="viewController">
@@ -93,6 +93,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="o8M-ca-CRN"/>
                     <navigationItem key="navigationItem" id="3vB-l7-LzV"/>
                     <connections>
                         <outlet property="scrollView" destination="7eC-gK-Jl1" id="E27-k6-hxu"/>
@@ -101,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zv-KU-NPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="548"/>
+            <point key="canvasLocation" x="1265" y="548"/>
         </scene>
         <!--Navigation Controller - SnapShot-->
         <scene sceneID="vGG-dc-tyd">
@@ -139,10 +140,31 @@
             </objects>
             <point key="canvasLocation" x="-683" y="548"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hq1-aq-Xas">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QjG-Hl-dkk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="jgB-iu-391">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="T4w-pF-CfL" kind="relationship" relationship="viewControllers" id="SvI-hm-n6y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jiJ-2v-Idr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="548"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="SvI-hm-n6y"/>
+    </inferredMetricsTieBreakers>
 </document>
