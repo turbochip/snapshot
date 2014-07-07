@@ -114,23 +114,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-86-oNM">
-                                <rect key="frame" x="0.0" y="149" width="768" height="903"/>
+                                <rect key="frame" x="20" y="72" width="728" height="932"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qI1-9I-JNj">
-                                <rect key="frame" x="141" y="266" width="37" height="37"/>
+                                <rect key="frame" x="20" y="72" width="728" height="880"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JcS-86-oNM" firstAttribute="leading" secondItem="BMm-fh-Kq1" secondAttribute="leading" id="0Ou-OH-qk9"/>
-                            <constraint firstItem="JcS-86-oNM" firstAttribute="top" secondItem="2EI-Lu-bK6" secondAttribute="bottom" constant="85" id="7md-jC-0eO"/>
-                            <constraint firstItem="qI1-9I-JNj" firstAttribute="leading" secondItem="BMm-fh-Kq1" secondAttribute="leading" constant="141" id="FX0-kZ-b4x"/>
-                            <constraint firstAttribute="bottom" secondItem="JcS-86-oNM" secondAttribute="bottom" constant="-28" id="Pwv-Gz-mTd"/>
-                            <constraint firstAttribute="trailing" secondItem="JcS-86-oNM" secondAttribute="trailing" id="SGQ-fp-LEy"/>
-                            <constraint firstItem="qI1-9I-JNj" firstAttribute="top" secondItem="2EI-Lu-bK6" secondAttribute="bottom" constant="202" id="wNZ-wh-TEI"/>
+                            <constraint firstAttribute="bottom" secondItem="JcS-86-oNM" secondAttribute="bottom" constant="20" symbolic="YES" id="1hp-DT-J4P"/>
+                            <constraint firstItem="JcS-86-oNM" firstAttribute="leading" secondItem="BMm-fh-Kq1" secondAttribute="leading" constant="20" symbolic="YES" id="Aq5-UN-50L"/>
+                            <constraint firstItem="JcS-86-oNM" firstAttribute="top" secondItem="2EI-Lu-bK6" secondAttribute="bottom" constant="20" symbolic="YES" id="R7K-JF-1FD"/>
+                            <constraint firstItem="qI1-9I-JNj" firstAttribute="top" secondItem="2EI-Lu-bK6" secondAttribute="bottom" constant="20" symbolic="YES" id="VwL-Sq-nWK"/>
+                            <constraint firstAttribute="centerX" secondItem="qI1-9I-JNj" secondAttribute="centerX" id="ccX-3Z-qWo"/>
+                            <constraint firstItem="qI1-9I-JNj" firstAttribute="leading" secondItem="BMm-fh-Kq1" secondAttribute="leading" constant="20" symbolic="YES" id="ik4-nq-OKE"/>
+                            <constraint firstAttribute="centerY" secondItem="qI1-9I-JNj" secondAttribute="centerY" id="myd-DH-en2"/>
+                            <constraint firstAttribute="trailing" secondItem="JcS-86-oNM" secondAttribute="trailing" constant="20" symbolic="YES" id="tBi-cK-9b7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bTc-es-uOp"/>
