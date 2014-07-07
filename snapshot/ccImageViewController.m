@@ -96,9 +96,15 @@
     return UIInterfaceOrientationIsPortrait(orientation);
 }
 
--(void) splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+-(void) splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
 {
-    barButtonItem.title=aViewController.title;
+    if(aViewController.title)
+        barButtonItem.title=aViewController.title;
+    else
+        barButtonItem.title=@"Show Menu";
     self.navigationItem.leftBarButtonItem=barButtonItem;
 }
 

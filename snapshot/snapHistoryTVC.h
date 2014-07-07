@@ -10,4 +10,6 @@
 
 @interface snapHistoryTVC : UITableViewController
 @property (nonatomic,strong) NSMutableArray* historyArray;
+@property (nonatomic,strong) NSArray *photos;
+@property (nonatomic,strong) id location_id;
 @end

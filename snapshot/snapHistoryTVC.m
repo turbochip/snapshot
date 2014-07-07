@@ -100,6 +100,18 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detail = self.splitViewController.viewControllers[1];
+    if([detail isKindOfClass:[UINavigationController class]]) {
+        detail = [((UINavigationController *)detail).viewControllers firstObject];
+    }
+    if([detail isKindOfClass:[ccImageViewController class]]) {
+        [self prepareImageViewController:detail toDisplayPhoto:self.historyArray[indexPath.row]];
+    }
+}
+
+
 
 #pragma mark - Navigation
 - (void) prepareImageViewController:(ccImageViewController *)ivc toDisplayPhoto:(NSDictionary *)photo
