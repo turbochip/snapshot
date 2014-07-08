@@ -96,7 +96,17 @@
     
     // Configure the cell...
     NSDictionary *photo = self.historyArray[indexPath.row];
-    cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+    if( ![[photo valueForKeyPath:FLICKR_PHOTO_TITLE] isEqualToString:@""]) {
+        cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_TITLE];
+        cell.detailTextLabel.text =[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    }
+    else {
+        if (![[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] isEqualToString:@""]) {
+            cell.textLabel.text=[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+        } else {
+            cell.textLabel.text=[NSString stringWithFormat:@"UNKNOWN"];
+        }
+    }
     return cell;
 }
 

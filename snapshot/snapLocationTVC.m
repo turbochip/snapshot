@@ -12,7 +12,9 @@
 #import "snapJustPostedFlickrPhotosTVCViewController.h"
 
 @interface snapLocationTVC ()
-
+@property (nonatomic,strong) NSMutableArray *country;
+@property (nonatomic,strong) NSMutableArray *locationsInCountry;
+@property (nonatomic,strong) NSMutableArray *loc;
 @end
 
 @implementation snapLocationTVC
@@ -31,8 +33,32 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.refreshControl endRefreshing];
             self.locations=locations;
+            for(int i=0;i<[self.locations count]; i++) {
+                NSMutableDictionary *d=[[self.locations objectAtIndex:i] mutableCopy];
+                [d setValue:[[[d valueForKeyPath:FLICKR_PLACE_NAME] componentsSeparatedByString:@","] lastObject] forKeyPath:@"Country"];
+                [self.loc addObject:d];
+            }
+            self.locations=self.loc;
         });
     });
+}
+
+- (NSMutableArray *) country
+{
+    if(!_country) _country=[[NSMutableArray alloc] init];
+    return _country;
+}
+
+- (NSMutableArray *) locationsInCountry
+{
+    if(!_locationsInCountry) _locationsInCountry=[[NSMutableArray alloc] init];
+    return _locationsInCountry;
+}
+
+- (NSMutableArray *) loc
+{
+    if(!_loc) _loc=[[NSMutableArray alloc] init];
+    return _loc;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -46,16 +72,14 @@
 
 - (void) setLocations:(NSArray *)locations
 {
+    NSSortDescriptor *country = [NSSortDescriptor sortDescriptorWithKey:@"Country" ascending:YES];
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_WOE_NAME ascending:YES];
     NSSortDescriptor *count = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_PHOTO_COUNT ascending:NO];
-    NSArray *descriptors = @[count, sort];
+    NSArray *descriptors = @[country, sort, count];
 
-//    _locations=[locations sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptors]];
     _locations=[locations sortedArrayUsingDescriptors:descriptors];
-//    _locations=locations;
     [self.tableView reloadData];
 }
-
 
 
 - (void)viewDidLoad
@@ -95,7 +119,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Location Cell" forIndexPath:indexPath];
     // Configure the cell...
     NSDictionary *location = self.locations[indexPath.row];
+    
     cell.textLabel.text=[location valueForKeyPath:FLICKR_PLACE_WOE_NAME];
+    cell.detailTextLabel.text =[location valueForKeyPath:@"Country"];
     return cell;
 }
 
