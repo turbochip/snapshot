@@ -12,12 +12,18 @@
 #import "snapJustPostedFlickrPhotosTVCViewController.h"
 
 @interface snapLocationTVC ()
-@property (nonatomic,strong) NSMutableArray *country;
-@property (nonatomic,strong) NSMutableArray *locationsInCountry;
-@property (nonatomic,strong) NSMutableArray *loc;
+//@property (nonatomic,strong) NSMutableArray *country;
+@property (nonatomic,strong) NSMutableDictionary *tableDictionary;
+
 @end
 
 @implementation snapLocationTVC
+
+- (NSMutableDictionary *) tableDictionary
+{
+    if(!_tableDictionary) _tableDictionary=[[NSMutableDictionary alloc] init];
+    return _tableDictionary;
+}
 
 
 - (void) fetchPhotos
@@ -33,33 +39,23 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.refreshControl endRefreshing];
             self.locations=locations;
-            for(int i=0;i<[self.locations count]; i++) {
-                NSMutableDictionary *d=[[self.locations objectAtIndex:i] mutableCopy];
-                [d setValue:[[[d valueForKeyPath:FLICKR_PLACE_NAME] componentsSeparatedByString:@","] lastObject] forKeyPath:@"Country"];
-                [self.loc addObject:d];
-            }
-            self.locations=self.loc;
         });
     });
 }
 
-- (NSMutableArray *) country
-{
-    if(!_country) _country=[[NSMutableArray alloc] init];
-    return _country;
-}
+//- (void) addCountry: (NSString *) ctry
+//{
+//    if([self.country indexOfObject:ctry]==NSNotFound) {
+//        [self.country addObject:ctry];
+//    }
+//}
 
-- (NSMutableArray *) locationsInCountry
-{
-    if(!_locationsInCountry) _locationsInCountry=[[NSMutableArray alloc] init];
-    return _locationsInCountry;
-}
-
-- (NSMutableArray *) loc
-{
-    if(!_loc) _loc=[[NSMutableArray alloc] init];
-    return _loc;
-}
+// Build an array of contries
+//- (NSMutableArray *) country
+//{
+//    if(!_country) _country=[[NSMutableArray alloc] init];
+//    return _country;
+//}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -70,17 +66,45 @@
     return self;
 }
 
-- (void) setLocations:(NSArray *)locations
+- (NSString *) flickrCountryFromDictionary:(NSDictionary *) d
 {
-    NSSortDescriptor *country = [NSSortDescriptor sortDescriptorWithKey:@"Country" ascending:YES];
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_WOE_NAME ascending:YES];
-    NSSortDescriptor *count = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_PHOTO_COUNT ascending:NO];
-    NSArray *descriptors = @[country, sort, count];
-
-    _locations=[locations sortedArrayUsingDescriptors:descriptors];
-    [self.tableView reloadData];
+    return [[[d valueForKeyPath:FLICKR_PLACE_NAME] componentsSeparatedByString:@","] lastObject];
 }
 
+- (void) setLocations:(NSArray *)locations
+{
+    NSMutableArray *loc=[[NSMutableArray alloc] init];
+    NSSortDescriptor *country = [NSSortDescriptor sortDescriptorWithKey:@"Country" ascending:YES];
+    NSSortDescriptor *place = [NSSortDescriptor sortDescriptorWithKey:FLICKR_PLACE_WOE_NAME ascending:YES];
+    NSArray *descriptors = @[place,country];
+    
+    // add country as a key in the flickr dictionary
+    for(int i=0;i<[locations count]; i++) {
+        NSMutableDictionary *d=[[locations objectAtIndex:i] mutableCopy];
+        [d setValue:[self flickrCountryFromDictionary:d] forKeyPath:@"Country"];
+        //build a new array holding new dictionaries
+        [loc addObject:d];
+    }
+    //replace locations with the array we just created.
+    _locations=[loc sortedArrayUsingDescriptors:descriptors];
+    
+    loc=nil;
+    loc=[[NSMutableArray alloc] init];
+
+    
+    for(NSMutableDictionary *fa in _locations){   // loop through flickr array
+        NSString *countryName=[fa objectForKey:@"Country"];  // get the animal type for each creature as we go through
+        if([self.tableDictionary objectForKey:countryName]) {  // if there is an key that matches that animal type
+            [[self.tableDictionary objectForKey:countryName] addObject:fa];  // add an object to that array
+        } else {   // the key for the type of animal doesn't exist
+            self.tableDictionary[countryName]=[[NSMutableArray alloc] init];  // initialize it as an array
+            [[self.tableDictionary objectForKey:countryName] addObject:fa];   // add the object to the array
+        }
+    }
+    
+
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad
 {
@@ -105,24 +129,39 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [self.tableDictionary count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.locations count];
+    // allKeys returns an array of the keys in the dictionary
+    // get the array and go to the index based on section and get the string value for it
+    NSString *key=[[self.tableDictionary allKeys] objectAtIndex:section];
+    // now use that string to get the value for that key and count
+    NSInteger rows=[[self.tableDictionary valueForKey:key ] count];
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Flickr Location Cell" forIndexPath:indexPath];
     // Configure the cell...
-    NSDictionary *location = self.locations[indexPath.row];
-    
+//    NSDictionary *location = self.locations[indexPath.row];
+    // get the key for the section
+    NSString *key=[[self.tableDictionary allKeys] objectAtIndex:indexPath.section];
+    // now get the array associated with that key
+    NSMutableArray *keyDict=[self.tableDictionary valueForKey:key];
+    NSMutableDictionary *location=[keyDict objectAtIndex:indexPath.row];
     cell.textLabel.text=[location valueForKeyPath:FLICKR_PLACE_WOE_NAME];
-    cell.detailTextLabel.text =[location valueForKeyPath:@"Country"];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *key=[[self.tableDictionary allKeys] objectAtIndex:section];
+    [tableView headerViewForSection:section].backgroundColor=[UIColor blueColor];
+    return key;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
